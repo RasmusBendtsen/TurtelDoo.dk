@@ -1,0 +1,283 @@
+@-ms-viewport {
+    width: device-width;
+}
+/*.html {
+    max-width: 480px;
+    width: 480px;
+}*/
+
+.app {
+    background-color: white;
+    padding: 30px;
+    font-size: 1.1em;
+}
+
+.todoListItemEven {
+    background-color: #BCAFBD;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.todoListItem {
+    background-color: #E4EA52;
+    color: #375456;
+    /padding: 8px;
+    cursor: pointer;
+    max-width: 400px;
+    padding: 10px;
+    transition: 0.3s;
+    /*border: 2px solid #74A9AD;*/
+    
+    overflow: hidden;
+    margin: 4px;
+    border-radius: 7px;
+    animation-name: moveUp;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.todoListItem:hover {
+    background-color: #F5FF00;
+    font-size: 12px;
+    color: black;
+}
+
+.todoListItem .strikeThrough {
+    text-decoration-line: line-through;
+    text-decoration: line-through;
+    color: #7B7B7B;
+    /*background-color: #555656 !important;*/
+}
+
+.strikeThrough:hover {
+    text-decoration-line: none;
+    text-decoration: none;
+    /*color: #7B7B7B !important;
+    background-color: #E4EA52 !important;*/
+}
+
+.hideElement {
+    display: none;
+}
+
+.doneElementBGColor {
+    background-color: #555656;
+}
+
+.buttons {
+    float: right;
+    position: relative;
+    right: 157px;
+    transition: .3s;
+    /* height: inherit; */
+    
+    background-color: rgba(168, 169, 169, 0.27);
+    padding: 3px;
+    padding-left: 25px;
+    padding-right: 20px;
+    top: 37px;
+    z-index: 200;
+}
+
+.buttons:hover {
+    background-color: #E0E82E;
+}
+
+.buttons input {
+    padding: 4px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+@keyframes moveUp {
+    from {}
+    to {}
+}
+
+.todoItemDetailContainer {
+    background-color: rgba(168, 169, 169, 0.27);
+    width: 93% !important;
+    height: 33px;
+    transition: 0.3s;
+    overflow: hidden;
+    padding: 5px;
+    padding-top: 10px;
+    /top: -25px !important;
+    position: relative;
+}
+
+.todoItemDetailContainer:active {
+    height: 100px;
+    display: inherit;
+}
+/*.todoItemDetailContainer:focus {
+    height: 100px;
+    display: inherit;
+}*/
+
+.detailInputField {
+    width: 100%;
+    height: 100%;
+    line-height: 2;
+    text-align: left;
+    align-self: top;
+    font-size: 12px;
+}
+
+.detailsViewField {
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+input[type="text"] {
+    background-color: #F1F1F1;
+    padding: 4px;
+    margin-bottom: 6px;
+    margin-right: 15%;
+    width: 100%;
+    border: 0px solid black;
+}
+
+input[type="password"] {
+    background-color: #F1F1F1;
+    padding: 4px;
+    margin-bottom: 6px;
+    margin-right: 15%;
+    width: 100%;
+    border: 0px solid black;
+}
+
+textarea {
+    background-color: #F1F1F1;
+    padding: 4px;
+    width: 100%;
+    border: 0px solid #4D797E;
+}
+
+.expanded {
+    height: 100px;
+}
+
+.inputForm {
+    float: none;
+    max-width: 400px;
+    padding: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
+    height: 54px;
+    overflow: hidden;
+    background-color: #E4EA52;
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.inputForm:hover {
+    height: 170px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.loginBox {
+    width: 100%;
+    top: 150px;
+    background-color: #5B8488;
+    padding: 50px;
+    padding-top: 30px;
+    float: none;
+    border: 1px solid #4D797E;
+}
+
+.navbar-default {
+    background-color: #598489;
+    border-color: #4D797E;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #A6D9DC;
+}
+
+.navbar-default .navbar-brand {
+    color: #A6D9DC;
+}
+
+@media (max-width: 768px) {
+    .app {
+        /background-color: white;
+        padding: 4px;
+        font-size: 1.9em;
+    }
+    .loginBox {
+        width: 100%;
+        top: 150px;
+        background-color: #5B8488;
+        padding: 10px;
+        padding-top: 30px;
+        float: none;
+        border: 1px solid #4D797E;
+    }
+    .container {
+        margin: 8px;
+    }
+    .navbar-nav>li>a {
+        line-height: 10px;
+    }
+    .inputForm:hover {
+        height: 240px;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+    .strikeThrough:hover {
+        text-decoration-line: none;
+        text-decoration: none;
+        background-color: #4D4E3F !important
+    }
+    .todoListItem:hover {
+        background-color: #F5FF00;
+        font-size: inherit;
+        color: black;
+    }
+    .detailInputField {
+        font-size: 0.7em !important;
+    }
+    .detailViewField {
+        font-size: 13px !important;
+    }
+}
+
+@media (min-width: 768px) {}
+
+.topMenu {
+    position: absolute;
+    top: -40px;
+    transition: .3s;
+    padding: 20px;
+    padding-top: 4px;
+    background-color: #9ACD32;
+    width: 100%;
+}
+
+.topMenu:hover {
+    top: 0px;
+}
+
+#GetButtonContainer {
+    position: absolute;
+    height: 115px;
+    width: 500px;
+    float: right;
+    right: -300px;
+    bottom: -35px;
+    transition: .3s;
+    z-index: 300;
+}
+
+#GetButtonContainer:hover {
+    /* position: absolute; */
+    
+    height: 115px;
+    /* float: right; */
+    
+    right: -171px;
+    width: 339px;
+}

@@ -1,0 +1,54 @@
+<div ng-disabled="disabled" style="position:relative; background-color:{{flagchanged(todoListLocal[index].flags, index)}};" ng-style="background-color:{{flagchanged(todoListLocal[index].flags, index)}};" id="todoItem{{index}}" ng-class="{myFlagIs: true, hideWhenDone: todoListLocal[index].done, doneElementBGColor: todoListLocal[index].done, strikeThrough: todoListLocal[index].done, todoListItem: true}">
+    <!-- Title  -->
+    <div ng-click="toggleDone(todoListLocal[index].flags, index)">
+        <!-- Show  -->
+        <div ng-hide="editable" ng-class="{strikeThrough: todoListLocal[index].done}">{{todoListLocal[index].id}} {{todoListLocal[index].title}}</div>
+        <div sv-handle class="SortIcon"><i class="fa fa-sort" style="color:{{flagchanged(todoListLocal[index].flags, index)}};"></i></div>
+        <!-- Edit  -->
+        <div>
+            <input type="text" ng-show="editable" value="{{todoListLocal[index].title}}" ng-model="todoListLocal[index].title">
+        </div>
+    </div>
+    <div id="ButtonsAndDetails">
+        <!-- Buttons area  -->
+        <div id="GetButtonContainer">
+            <div class="buttons">
+                <input type="button" ng-class="{hideElement: false}" value="{{editButtonText}}" ng-click="changeState(todoListLocal, index, todoListLocal[index].title, todoListLocal[index].details, todoListLocal[index].flags)" class="btn btn-success">
+                <input type="button" value="Delete" ng-click="deleteItem(index)" class="btn btn-warning">
+                <!--<input type="button" ng-class="{hideElement: false}" value="up" ng-click="swapItemsUp(todoListLocal, index)" class="btn btn-info">-->
+            </div>
+        </div>
+        <!-- Details  -->
+        <div ng-show="!editable" class="detailsViewField">{{todoListLocal[index].flags.name}}</div>
+        <select ng-show="editable" ng-change="flagchanged(todoListLocal[index].flags, index)" ng-options="flag.name for flag in flags" ng-model="todoListLocal[index].flags"></select>
+        <div ng-class="{todoItemDetailContainer:true, expanded: expanded || editable}" ng-click="toggleExpand()">
+            <!-- Show  -->
+            <div ng-hide="editable" class="detailsViewField" ng-repeat="comment in todoListLocal[index].details">{{todoListLocal[index].details}}</div>
+            <!-- Edit  -->
+            <div>
+<!--                <form ng-submit="addComment(newComment)">
+                    <input type="text" ng-model="newComment">
+                    <input type="submit" value="Add">
+                </form>
+                <div ng-repeat="comment in comments track by index"></div>
+                <textarea rows="7" type="text" ng-show="editable" value="{{todoListLocal[index].details}}" ng-model="todoListLocal[index].details" class="detailInputField">
+                </textarea>-->
+
+                
+                <!--<div ng-repeat="comment in TestArray"> 
+                    <b>{{comment.date}}</b> : {{comment.comment}}
+                    <hr>
+                </div>-->
+                <div ng-repeat="comment in todoListLocal[index].comments | toArray | orderBy : '-sortFormattedDate'"> 
+                    <b>{{comment.date}}</b> : {{comment.comment}}
+                    <hr>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <form ng-submit="addComment(newComment, index)">
+        <input class="detailInputField" type="text" ng-model="newComment">
+        <input class="detailInputSubmitButton"type="submit" value="Add">
+    </form>
+</div>
